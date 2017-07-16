@@ -159,6 +159,8 @@ public class DateTest extends AbstractTest {
     validateDate(reference, "1 year 9 months 1 day from now", 11, 29, 2012);
     validateDate(reference, "2 years 4 months ago", 10, 28, 2008);
     validateDate(reference, "2 years 4 months 5 days ago", 10, 23, 2008);
+    validateDate(reference, "$36 1 month ago", 1, 28, 2011);
+    validateDate(reference, "£2017 last year", 2, 28, 2010);
   }
   
   @Test
