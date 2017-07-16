@@ -278,7 +278,7 @@ START     : 'start';
 END       : 'end';
 
 WHITE_SPACE
-  : (DOT | SPACE)+
+  : (DOT | SPACE | MONEY)+
   ;
   
 // ********** holiday specific **********
@@ -322,7 +322,7 @@ FALL   : 'fall'   's'?;
 AUTUMN : 'autumn' 's'?;
 SPRING : 'spring' 's'?;
 SUMMER : 'summer' 's'?;
-  
+
 UNKNOWN
   : UNKNOWN_CHAR
   ;
@@ -330,7 +330,14 @@ UNKNOWN
 fragment UNKNOWN_CHAR
   : ~(SPACE | DOT)
   ;
-  
+
 fragment DIGIT : '0'..'9';
   
 fragment SPACE : ' ' | '\t' | '\n' | '\r' | '\u00A0';
+
+// \u20a0 .. \ua20cf is Unicode currency block
+fragment CURRENCY_SYMBOL : '$' | '\u00a3' | ('\u20a0'..'\u20cf');
+
+fragment MONEY   : CURRENCY_SYMBOL SPACE* ('1'..'9') (COMMA? DIGIT+)* (DOT DIGIT*)?;
+
+
