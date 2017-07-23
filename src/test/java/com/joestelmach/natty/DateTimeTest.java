@@ -40,9 +40,9 @@ public class DateTimeTest extends AbstractTest {
     validateDateTime(reference, "3am, on october first 2010", 10, 1, 2010, 3, 0, 0);
     validateDateTime(reference, "3am october first 2010", 10, 1, 2010, 3, 0, 0);
     validateDateTime(reference, "April 20, 10am", 4, 20, 2012, 10, 0, 0);
-    validateDateTime(reference, "April 20 10", 4, 20, 2012, 10, 0, 0);
     validateDateTime(reference, "April 20 at 10 am", 4, 20, 2012, 10, 0, 0);
     validateDateTime(reference, "Mar 16, 2015 3:33:39 PM", 3, 16, 2015, 15, 33, 39);
+    validateDateTime(reference, "March 2017 4/4", 3, 1, 2017, 0, 0, 0);
   }
 
   @Test

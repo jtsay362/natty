@@ -170,14 +170,16 @@ public class TimeGrammarTest extends AbstractGrammarTest {
     assertAST("0700h", "(EXPLICIT_TIME (HOURS_OF_DAY 07) (MINUTES_OF_HOUR 00))");
     assertAST("6pm", "(EXPLICIT_TIME (HOURS_OF_DAY 6) (MINUTES_OF_HOUR 0) pm)");
     assertAST("5:30 a.m.", "(EXPLICIT_TIME (HOURS_OF_DAY 5) (MINUTES_OF_HOUR 30) am)");
-    assertAST("5", "(EXPLICIT_TIME (HOURS_OF_DAY 5) (MINUTES_OF_HOUR 0))");
+    //No longer supported in "embedded" branch
+    //assertAST("5", "(EXPLICIT_TIME (HOURS_OF_DAY 5) (MINUTES_OF_HOUR 0))");
     assertAST("12:59", "(EXPLICIT_TIME (HOURS_OF_DAY 12) (MINUTES_OF_HOUR 59))");
     assertAST("23:59", "(EXPLICIT_TIME (HOURS_OF_DAY 23) (MINUTES_OF_HOUR 59))");
     assertAST("00:00", "(EXPLICIT_TIME (HOURS_OF_DAY 00) (MINUTES_OF_HOUR 00))");
     assertAST("10:00am", "(EXPLICIT_TIME (HOURS_OF_DAY 10) (MINUTES_OF_HOUR 00) am)");
     assertAST("10a", "(EXPLICIT_TIME (HOURS_OF_DAY 10) (MINUTES_OF_HOUR 0) am)");
     assertAST("10am", "(EXPLICIT_TIME (HOURS_OF_DAY 10) (MINUTES_OF_HOUR 0) am)");
-    assertAST("10", "(EXPLICIT_TIME (HOURS_OF_DAY 10) (MINUTES_OF_HOUR 0))");
+    //No longer supported in "embedded" branch
+    //assertAST("10", "(EXPLICIT_TIME (HOURS_OF_DAY 10) (MINUTES_OF_HOUR 0))");
     assertAST("8p", "(EXPLICIT_TIME (HOURS_OF_DAY 8) (MINUTES_OF_HOUR 0) pm)");
     assertAST("8pm", "(EXPLICIT_TIME (HOURS_OF_DAY 8) (MINUTES_OF_HOUR 0) pm)");
     assertAST("8 pm", "(EXPLICIT_TIME (HOURS_OF_DAY 8) (MINUTES_OF_HOUR 0) pm)");

@@ -822,7 +822,7 @@ explicit_time_hours_minutes returns [String hours, String minutes, String ampm]
       {$hours=$hours.text; $minutes=$minutes.text; $ampm=$meridian_indicator.text;}
       -> hours minutes seconds? meridian_indicator?
 
-  | hours (WHITE_SPACE? meridian_indicator)?
+  | hours WHITE_SPACE? meridian_indicator
       {$hours=$hours.text; $ampm=$meridian_indicator.text;}
       -> hours ^(MINUTES_OF_HOUR INT["0"]) meridian_indicator?
   ;
@@ -861,9 +861,17 @@ friendly_meridian_indicator
     )
   ;
 
+explicit_time_hours_minutes_or_bare_hour returns [String hours, String minutes, String ampm]
+  : ethm = explicit_time_hours_minutes
+    {$hours=$ethm.hours; $minutes=$ethm.minutes; $ampm = $ethm.ampm;}
+  | hours
+      {$hours=$hours.text; $minutes="0"; $ampm = "am";}
+      -> hours ^(MINUTES_OF_HOUR INT["0"]) AM_PM["am"]
+  ;
+
 named_time
-  : (named_time_prefix? named_hour (WHITE_SPACE AT)? WHITE_SPACE hm=explicit_time_hours_minutes)=>
-      named_time_prefix? named_hour (WHITE_SPACE AT)? WHITE_SPACE hm=explicit_time_hours_minutes
+  : (named_time_prefix? named_hour (WHITE_SPACE AT)? WHITE_SPACE hm=explicit_time_hours_minutes_or_bare_hour)=>
+      named_time_prefix? named_hour (WHITE_SPACE AT)? WHITE_SPACE hm=explicit_time_hours_minutes_or_bare_hour
 
     // If the named time is at night, but the hour given is before 5, we'll assume tomorrow morning
     -> {$named_hour.ampm != null && $named_hour.ampm.equals("pm") && Integer.parseInt($hm.hours) < 5}?

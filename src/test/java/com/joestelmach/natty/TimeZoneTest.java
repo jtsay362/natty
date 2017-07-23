@@ -29,13 +29,13 @@ public class TimeZoneTest extends AbstractTest {
     validateDateTime(reference, "5/1/13 01:00:00 UTC", 4, 30, 2013, 21, 0, 0);
     validateDateTime(reference, "5/1/13 01:00:00 UTC+8", 4, 30, 2013, 13, 0, 0);
     validateDateTime(reference, "5/1/13 01:00:00 GMT-1", 4, 30, 2013, 22, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 eastern time", 5, 20, 2012, 10, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 central time", 5, 20, 2012, 11, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 central", 5, 20, 2012, 11, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 mountain time", 5, 20, 2012, 12, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 pacific time", 5, 20, 2012, 13, 0, 0);
+    validateDateTime(reference, "tomorrow, 10 am eastern time", 5, 20, 2012, 10, 0, 0);
+    validateDateTime(reference, "tomorrow, 10 AM central time", 5, 20, 2012, 11, 0, 0);
+    validateDateTime(reference, "tomorrow, 10am central", 5, 20, 2012, 11, 0, 0);
+    validateDateTime(reference, "tomorrow, 10 am mountain time", 5, 20, 2012, 12, 0, 0);
+    validateDateTime(reference, "tomorrow, 10 AM pacific time", 5, 20, 2012, 13, 0, 0);
     validateDateTime(reference, "tomorrow, 10pm pacific", 5, 21, 2012, 1, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 alaska time", 5, 20, 2012, 14, 0, 0);
-    validateDateTime(reference, "tomorrow, 10 hawaii time", 5, 20, 2012, 16, 0, 0);
+    validateDateTime(reference, "tomorrow, 10 am alaska time", 5, 20, 2012, 14, 0, 0);
+    validateDateTime(reference, "tomorrow, 10am hawaii time", 5, 20, 2012, 16, 0, 0);
   }
 }

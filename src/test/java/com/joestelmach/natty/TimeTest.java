@@ -38,7 +38,8 @@ public class TimeTest extends AbstractTest {
     validateTime(reference, "0700h", 7, 0, 0);
     validateTime(reference, "6pm", 18, 0, 0);
     validateTime(reference, "5:30 a.m.", 5, 30, 0);
-    validateTime(reference, "5", 5, 0, 0);
+    //No longer supported in "embedded" branch
+    //validateTime(reference, "5", 5, 0, 0);
     validateTime(reference, "12:59", 12, 59, 0);
     validateTime(reference, "23:59:28", 23, 59, 28);
     validateTime(reference, "00:00", 0, 0, 0);
@@ -46,7 +47,8 @@ public class TimeTest extends AbstractTest {
     validateTime(reference, "10a", 10, 0, 0);
     validateTime(reference, "10am", 10, 0, 0);
     validateTime(reference, "10a_m", 10, 0, 0);
-    validateTime(reference, "10", 10, 0, 0);
+    //No longer supported in "embedded" branch
+    //validateTime(reference, "10", 10, 0, 0);
     validateTime(reference, "8p", 20, 0, 0);
     validateTime(reference, "8pm", 20, 0, 0);
     validateTime(reference, "8 pm", 20, 0, 0);
@@ -95,7 +97,7 @@ public class TimeTest extends AbstractTest {
     Date reference = DateFormat.getTimeInstance(DateFormat.SHORT).parse("12:00 pm");
     calendarSource = new CalendarSource(reference);
 
-    List<Date> dates = parseCollection(reference, "12 or 12:30");
+    List<Date> dates = parseCollection(reference, "12 pm or 12:30 pm");
     Assert.assertEquals(2, dates.size());
     validateTime(dates.get(0), 12, 0, 0);
     validateTime(dates.get(1), 12, 30, 0);
@@ -110,7 +112,7 @@ public class TimeTest extends AbstractTest {
     validateTime(dates.get(0), 12, 0, 0);
     validateTime(dates.get(1), 12, 30, 0);
 
-    dates = parseCollection(reference, "12 or 12:30am");
+    dates = parseCollection(reference, "12am or 12:30am");
     Assert.assertEquals(2, dates.size());
     validateTime(dates.get(0), 0, 0, 0);
     validateTime(dates.get(1), 0, 30, 0);

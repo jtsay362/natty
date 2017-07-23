@@ -213,12 +213,12 @@ public class DateTest extends AbstractTest {
     validateDate(dates.get(0), 2, 28, 2011);
     validateDate(dates.get(1), 3, 2, 2011);
     
-    dates = parseCollection(reference, "tomorrow at 10 and monday at 11");
+    dates = parseCollection(reference, "tomorrow at 10 am and monday at 11 AM");
     Assert.assertEquals(2, dates.size());
     validateDate(dates.get(0), 1, 3, 2011);
     validateDate(dates.get(1), 1, 3, 2011);
     
-    dates = parseCollection(reference, "tomorrow at 10 through tues at 11");
+    dates = parseCollection(reference, "tomorrow at 10am through tues at 11AM");
     Assert.assertEquals(2, dates.size());
     validateDate(dates.get(0), 1, 3, 2011);
     validateDate(dates.get(1), 1, 4, 2011);
